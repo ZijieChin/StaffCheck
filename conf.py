@@ -47,8 +47,8 @@ dupcols = [
         'table': '中金签收',
         'col': '手机号码',
         'check': [
-            {'table': 'DMS司机明细数据', 'col': '司机电话', 'show': '司机名称'},
-            {'table': '业务托收电话号码', 'col': '服务号码', 'show': '服务号码'},
+            {'table': 'DMS司机明细数据', 'col': '司机电话', 'show': '司机名称', 'tablecol': 'DMS司机明细数据'},
+            {'table': '业务托收电话号码', 'col': '服务号码', 'show': '服务号码', 'tablecol': '业务托收电话号码'},
             {'table': '员工个人及亲属信息', 'col': '手机号码', 'show': '员工编码', 'tablecol': '员工手机号'},
             {'table': '员工个人及亲属信息', 'col': '家庭电话', 'show': '员工编码', 'tablecol': '员工家庭电话'},
             {'table': '员工个人及亲属信息', 'col': '紧急联络人的电话', 'show': '员工编码', 'tablecol': '员工紧急联系人'},
@@ -64,9 +64,9 @@ dupcustomcols = [
         'phone': 'user_name',
         'custom': 'outlet_no',
         'check': [
-            {'table': '中金签收', 'phone': '手机号码', 'custom': '客户编号', 'show': '客户编号'},
-            {'table': '乐配通用户', 'phone': '手机号', 'custom': '伙伴编号', 'show': '伙伴编号'},
-            {'table': '客户资料清单', 'phone': '手机号码', 'custom': '客户编号', 'show': '客户编号'},
+            {'table': '中金签收', 'phone': '手机号码', 'custom': '客户编号', 'show': '客户编号', 'tablecol': '中金签收'},
+            {'table': '乐配通用户', 'phone': '手机号', 'custom': '伙伴编号', 'show': '伙伴编号', 'tablecol': '乐配通用户'},
+            {'table': '客户资料清单', 'phone': '手机号码', 'custom': '客户编号', 'show': '客户编号', 'tablecol': '客户资料清单'},
         ]
     },
     {
@@ -74,9 +74,9 @@ dupcustomcols = [
         'phone': '手机号码',
         'custom': '客户编号',
         'check': [
-            {'table': 'CP', 'phone': 'user_name', 'custom': 'outlet_no', 'show': 'outlet_no'},
-            {'table': '乐配通用户', 'phone': '手机号', 'custom': '伙伴编号', 'show': '伙伴编号'},
-            {'table': '客户资料清单', 'phone': '手机号码', 'custom': '客户编号', 'show': '客户编号'},
+            {'table': 'CP', 'phone': 'user_name', 'custom': 'outlet_no', 'show': 'outlet_no', 'tablecol': 'CP'},
+            {'table': '乐配通用户', 'phone': '手机号', 'custom': '伙伴编号', 'show': '伙伴编号', 'tablecol': '乐配通用户'},
+            {'table': '客户资料清单', 'phone': '手机号码', 'custom': '客户编号', 'show': '客户编号', 'tablecol': '客户资料清单'},
         ]
     },
 ]

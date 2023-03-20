@@ -27,7 +27,7 @@ def phone_to_multi_customers(reslist: list):
     result_dict = {}
     for item in reslist:
         if item[0] in result_dict:
-            result_dict[item[0]] += "\n" + item[1]
+            result_dict[item[0]] += "/" + item[1]
         else:
             result_dict[item[0]] = item[1]
 
@@ -44,7 +44,7 @@ def write_dup_to_db(conn: Connection, dups: list):
         for r in res:
             if len(r['result']) != 0:
                 for item in r['result']:
-                    sql = f'''UPDATE {table} SET {r["table"]} = '{item[1]}' WHERE id = {item[0]}'''
+                    sql = f'''UPDATE {table} SET {r["tablecol"]} = '{item[1]}' WHERE id = {item[0]}'''
                     cursor.execute(sql)
     conn.commit()
 
@@ -60,7 +60,7 @@ def simple_match():
             print(f'检查表 {table} 及表 {check["table"]}...')
             result = get_dup_phone(conn, table, check['table'], phone, check['col'], check['show'])
             result = phone_to_multi_customers(result)
-            tabledup['check'].append({'table': check['table'], 'result': result})
+            tabledup['check'].append({'tablecol': check['tablecol'], 'result': result})
             dups.append(tabledup)
     write_dup_to_db(conn, dups)
 
@@ -79,6 +79,6 @@ def complex_match():
                                               check['custom'],
                                               check['show'])
             result = phone_to_multi_customers(result)
-            tabledup['check'].append({'table': check['table'], 'result': result})
+            tabledup['check'].append({'tablecol': check['tablecol'], 'result': result})
             dups.append(tabledup)
     write_dup_to_db(conn, dups)

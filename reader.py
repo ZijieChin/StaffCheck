@@ -28,7 +28,7 @@ def read_excel_to_sqlite(filepath: str):
         if filename.endswith(".xlsx") and not filename.startswith('~$'):
             tablename = filename.split('.')[0]
             files.append(tablename)
-            df = pd.read_excel(os.path.join(filepath, filename), dtype=str)
+            df = pd.read_excel(os.path.join(filepath, filename), dtype=str, engine='openpyxl')
             df.to_sql(tablename, conn, if_exists="replace", index=True, index_label="id")
             if len(cols[tablename]) != 0:
                 for col in cols[tablename]:
