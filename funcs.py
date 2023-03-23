@@ -82,3 +82,9 @@ def complex_match():
             tabledup['check'].append({'tablecol': check['tablecol'], 'result': result})
             dups.append(tabledup)
     write_dup_to_db(conn, dups)
+
+
+# 客户资料匹配
+# 匹配员工个人、亲属及紧急联系人信息
+# 若查找到手机号重复，首先查询员工是否为大区经理，若为大区经理，保留客户所在大区与大区经理相同的客户
+# 若不是大区，保留客户所在营业所与员工所在营业所相同的客户
